@@ -1,6 +1,7 @@
 package com.redpxnda.bcfinishers;
 
 import com.mojang.logging.LogUtils;
+import com.redpxnda.bcfinishers.capability.ChargeHelper;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.Blocks;
 import net.minecraftforge.common.MinecraftForge;
@@ -69,6 +70,9 @@ public class BCFinishers {
     // Event bus for receiving Registry Events)
     @Mod.EventBusSubscriber(bus = Mod.EventBusSubscriber.Bus.MOD)
     public static class RegistryEvents {
-
+        @SubscribeEvent
+        public void registerCaps(RegisterCapabilitiesEvent event) {
+            event.register(ChargeHelper.class);
+        }
     }
 }
